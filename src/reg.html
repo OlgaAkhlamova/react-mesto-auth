@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Register</title>
+</head>
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img src="images/header-logo.svg" alt="логотип проекта место россии" class="header__logo">
+            <div class="header__button-container">
+                <button type="submit" class="login__link">Войти</button>
+            </div>
+        </header>
+        <section class="login__container">
+          <div class="login">
+            <h3 class="login__title">Регистрация</h3>
+            <form class="login__form">
+              <input class="login__input" id="username" name="username" type="email" placeholder="Email" required>
+              <input class="login__input" id="password" name="password" type="password" placeholder="Пароль" required>
+            </form>
+            <button class="login__submit">Зарегистрироваться</button>
+            <div class="login__signup">
+              <a class="signup__link" href="#">Уже заpегистрированы? Войти</a>
+            </div>
+          </div>
+        </section>
+        <section class="popup popup_register" aria-label="вы успешно зарегистрировались">
+          <div class="popup__container-register">
+            <img src="images/success.svg" class="popup__notice-img">
+            <h3 class="popup__notice-text">Вы успешно зарегистрировались!</h3>
+            <button type="button" class="popup__close popup__close_new-place" aria-label="закрыть форму добавления изображения" 
+                title="закрыть форму добавления изображения"></button> 
+          </div>
+      </section> 
+    </div>
+    
+</body>
+</html>

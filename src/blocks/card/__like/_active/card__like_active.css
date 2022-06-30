@@ -1,0 +1,12 @@
+.card__like_active {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  display: inline-block;
+  background: 50% no-repeat;
+  background-size: 100%;
+  border: none;
+  background-image: url(../../../../images/heart-black.svg);
+  cursor: pointer;
+  opacity: 1;
+}

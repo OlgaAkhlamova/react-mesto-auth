@@ -1,0 +1,24 @@
+.profile__info-job {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  max-width: 510px;
+  margin: 0;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 620px) {
+  .profile__info-job {
+    max-width: 226px;
+    font-size: 14px;
+    line-height: 17px;
+    /*    text-align: center;*/
+    padding-left: 16px;
+  }
+}

@@ -1,0 +1,5 @@
+.popup__form {
+    display: inline-block;
+    justify-content: start;
+    align-items: center;
+}

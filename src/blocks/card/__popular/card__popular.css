@@ -1,0 +1,7 @@
+.card__popular {
+  width: 22px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
