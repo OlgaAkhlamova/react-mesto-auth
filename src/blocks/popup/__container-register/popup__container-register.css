@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 620px) {
   .popup__container-register {
-      width: 280px;
-      min-height: 308px;
+    width: 280px;
+    min-height: 308px;
   }
 }

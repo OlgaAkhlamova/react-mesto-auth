@@ -1,0 +1,28 @@
+.header__link-exit {
+  text-align: end;
+  width: 56px;
+  padding: 6px 0 0 0;
+  border: none;
+  color: #A9A9A9;
+  background-color: black;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__link-exit:hover {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 420px) {
+  .header__link-exit {
+    font-size: 18px;
+    line-height: 22px;
+    padding-top: 5px;
+  }
+
+}

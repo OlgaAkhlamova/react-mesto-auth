@@ -1,21 +1,21 @@
 .popup__container-zoom {
-    position: relative;
-    /*   display: inline-block;
+  position: relative;
+  /*   display: inline-block;
     */
-    max-height: 75vh;
-    max-width: 75vw;
+  max-height: 75vh;
+  max-width: 75vw;
 }
 
 @media screen and (max-width: 940px) {
-    .popup__container-zoom {
-        max-height: 75vh;
-        max-width: 75vw;
-    }
+  .popup__container-zoom {
+    max-height: 75vh;
+    max-width: 75vw;
+  }
 }
 
 @media screen and (max-width: 620px) {
-    .popup__container-zoom {
-        max-height: 75vh;
-        max-width: 75vw;
-    }
+  .popup__container-zoom {
+    max-height: 75vh;
+    max-width: 75vw;
+  }
 }

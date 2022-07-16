@@ -15,10 +15,10 @@
 
 @media screen and (max-width: 620px) {
   .popup__notice-text {
-      width: 244px;
-      min-height: 48px;
-      padding: 0 18px 40px 18px;
-      font-size: 20px;
-      line-height: 24px;
+    width: 244px;
+    min-height: 48px;
+    padding: 0 18px 40px 18px;
+    font-size: 20px;
+    line-height: 24px;
   }
 }

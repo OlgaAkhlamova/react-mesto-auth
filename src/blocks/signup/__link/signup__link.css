@@ -10,5 +10,8 @@
   margin: 0;
 
   color: #FFFFFF;
+}
 
+.signup__link:hover {
+  opacity: 0.6;
 }
