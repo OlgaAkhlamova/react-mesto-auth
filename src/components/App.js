@@ -126,8 +126,7 @@ function App() {
       console.log(res.data.email);
       setIsRegSuccess(true);
       setInfoTooltipImage(imageSuccess);
-      setMessage('Вы успешно зарегистрировались!')
-      setIsTooltipPopupOpen(true);
+      setMessage('Вы успешно зарегистрировались!');
       history.push('/signin');
     })
     .catch((err) => {
@@ -135,8 +134,8 @@ function App() {
       setIsRegSuccess(false);
       setInfoTooltipImage(imageFail);
       setMessage('Что-то пошло не так! Попробуйте еще раз!');
-      setIsTooltipPopupOpen(true);
-    });
+    })
+    .finally(()=> setIsTooltipPopupOpen(true));
   }
 
   function handleLogin(userData) {
@@ -147,7 +146,6 @@ function App() {
       localStorage.setItem('jwt', res.token);
       setLoggedIn(true);
       setUserEmail(userData.email); 
-      handleCheckToken();
       history.push('/');  
     })
     .catch((err) => {
@@ -156,32 +154,27 @@ function App() {
       setInfoTooltipImage(imageFail);
       setMessage('Что-то пошло не так! Попробуйте еще раз!');
       setIsTooltipPopupOpen(true);
-    });
+    })
   }
 
   function handleCheckToken() {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      if (token) {
-        auth.checkToken(token)
-        .then((res) => {
-          console.log(res);
-          if (res) {
-            setUserEmail(res.data.email);
-            setLoggedIn(true);
-            history.push('/');
-          }       
-        })
-        .catch((err) => {console.log(`Ошибка: ${err}`)});
-      }
+    const token = localStorage.getItem('token');
+    if (token) {
+      auth.checkToken(token)
+      .then((res) => {
+        console.log(res);
+        if (res) {
+          setUserEmail(res.data.email);
+          setLoggedIn(true);
+          history.push('/');
+        }       
+      })
+      .catch((err) => {console.log(`Ошибка: ${err}`)});
     }
   };
 
   function closePopup() {
     setIsTooltipPopupOpen(false);
-    if (isRegSuccess) {
-      history.push('/signin');
-    }
   }
 
   useEffect(()=>{
@@ -202,6 +195,8 @@ function App() {
       <div className="page">
         <Switch>
           <Route exact path="/signin">
+            {/*Относительно повторяющихся Header обещаю подумать на досуге, 
+            но пока в голову ничего путного и работающего не приходит 0_0*/}
             <Header>
               <div className="header__button-container">
                 <NavLink to="/signup" className="login__link">Регистрация</NavLink>
