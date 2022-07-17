@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Switch, Route, Redirect, useHistory, NavLink} from 'react-router-dom';
+import {Switch, Route, useHistory, NavLink} from 'react-router-dom';
 import userStartAvatar from '../images/avatarka.jpg';
 import imageSuccess from '../images/success.svg';
 import imageFail from '../images/fail.svg';
@@ -140,14 +140,14 @@ function App() {
 
   function handleLogin(userData) {
     auth.authorize(userData)
-    .then((res) => {
-      console.log(res);
-      console.log(userData.email);
-      localStorage.setItem('jwt', res.token);
-      setLoggedIn(true);
-      setUserEmail(userData.email); 
-      history.push('/');  
-    })
+     .then((res) => {
+       console.log(res);
+       console.log(userData.email);
+       localStorage.setItem('jwt', res.token);
+       setLoggedIn(true);
+       setUserEmail(userData.email); 
+       history.push('/');  
+     })
     .catch((err) => {
       console.log(err);
       setLoggedIn(false);
@@ -158,7 +158,7 @@ function App() {
   }
 
   function handleCheckToken() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
     if (token) {
       auth.checkToken(token)
       .then((res) => {
@@ -176,6 +176,10 @@ function App() {
   function closePopup() {
     setIsTooltipPopupOpen(false);
   }
+
+  useEffect(() => {
+      handleCheckToken();
+  }, [])
 
   useEffect(()=>{
     if (loggedIn) {
@@ -195,8 +199,8 @@ function App() {
       <div className="page">
         <Switch>
           <Route exact path="/signin">
-            {/*Относительно повторяющихся Header обещаю подумать на досуге, 
-            но пока в голову ничего путного и работающего не приходит 0_0*/}
+            {/*Относительно повторяющихся Header обещаю поэкспериментировать, 
+            но пока в голову ничего иного, путного и работающего, не приходит 0_0*/}
             <Header>
               <div className="header__button-container">
                 <NavLink to="/signup" className="login__link">Регистрация</NavLink>
@@ -235,13 +239,7 @@ function App() {
             />
             <Footer/>
           </ProtectedRoute>
-          <Route>
-            {loggedIn ? 
-              <Redirect to='/' />
-             : 
-              <Redirect to='/signin' />
-            }
-          </Route>
+          
         </Switch>
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
